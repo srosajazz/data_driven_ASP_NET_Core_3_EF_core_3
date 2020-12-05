@@ -8,12 +8,34 @@ using Microsoft.AspNetCore.Mvc;
 [Route("categories")]
 public class CategoryController : ControllerBase 
 {
-  // https://localhost:5001/categories
+  // GET
+  [HttpGet]
   [Route("")]
-  public string MyMethod()
+  public string Get()
   {
-    return "Hello World!";
+    return "GET";
   }
 
+// POST
+  [HttpPost]
+  [Route("")]
+  public string Post()
+  {
+    return "POST";
+  }
 
+//PUT
+  [HttpPut]
+  [Route("")]
+  public string Put()
+  {
+    return "PUT";
+  }
+//DELETE
+  [HttpDelete]
+  [Route("")]
+  public string Delete()
+  {
+    return "DELETE";
+  }
 }
