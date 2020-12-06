@@ -1,3 +1,4 @@
+using Backoffice.Models;
 using Microsoft.AspNetCore.Mvc;
 
 
@@ -28,16 +29,16 @@ public class CategoryController : ControllerBase
 // POST
   [HttpPost]
   [Route("")]
-  public string Post()
+  public Category Post([FromBody] Category model)
   {
-    return "POST";
+    return model;
   }
 
 //PUT
   [HttpPut]
   [Route("")]
   public string Put()
-  {
+  {s
     return "PUT";
   }
 //DELETE
