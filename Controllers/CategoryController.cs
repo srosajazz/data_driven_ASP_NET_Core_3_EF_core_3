@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using System.Threading.Tasks;
 using Backoffice.Models;
 using Microsoft.AspNetCore.Mvc;
 
@@ -12,24 +14,24 @@ public class CategoryController : ControllerBase
   // GET
   [HttpGet]
   [Route("")]
-  public string Get()
+  public async Task<ActionResult<List<Category>>> Get()
   {
-    return "GET";
+    return new List<Category>();
   }
 
    // GETById
   [HttpGet]
   [Route("{id:int}")]
-  public string GetById(int id)
+  public async Task<ActionResult<Category>> GetById(int id)
   {
-    return "GET" + id.ToString();
+    return new Category();
   }
 
 
 // POST
   [HttpPost]
   [Route("")]
-  public Category Post([FromBody] Category model)
+  public async Task<ActionResult<Category>> Post([FromBody] Category model)
   {
     return model;
   }
@@ -37,18 +39,18 @@ public class CategoryController : ControllerBase
 //PUT
   [HttpPut]
   [Route("{id:int}")]
-  public Category Put(int id, [FromBody]Category model)
+  public  async Task<ActionResult<Category>> Put(int id, [FromBody]Category model)
   {
     if (model.Id == id)
-    return model;
+    return Ok(model);
 
-    return null;
+    return NotFound();
   }
 //DELETE
   [HttpDelete]
   [Route("{id:int}")]
-  public string Delete()
+  public  async Task<ActionResult<Category>> Delete()
   {
-    return "DELETE";
+    return Ok();
   }
 }
