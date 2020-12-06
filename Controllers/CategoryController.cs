@@ -36,14 +36,17 @@ public class CategoryController : ControllerBase
 
 //PUT
   [HttpPut]
-  [Route("")]
-  public string Put()
-  {s
-    return "PUT";
+  [Route("{id:int}")]
+  public Category Put(int id, [FromBody]Category model)
+  {
+    if (model.Id == id)
+    return model;
+
+    return null;
   }
 //DELETE
   [HttpDelete]
-  [Route("")]
+  [Route("{id:int}")]
   public string Delete()
   {
     return "DELETE";
