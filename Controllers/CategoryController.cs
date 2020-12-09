@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 
 // EndPoint => URL
 // http://localhost:5000
-// https://localhost: 5001 - Azure
+// https://localhost: 5001 
 
 [Route("categories")]
 public class CategoryController : ControllerBase 
@@ -46,11 +46,11 @@ public class CategoryController : ControllerBase
   [Route("{id:int}")]
   public async Task<ActionResult<Category>> Put(int id, [FromBody]Category model)
   {
-     // Verifica se o ID informado é o mesmo do modelo
+     // todo: Check ID if i sthe same id from model
             if (id != model.Id)
                 return NotFound(new { message = "Category not found" });
 
-            // Verifica se os dados são válidos
+            
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
